@@ -1,5 +1,11 @@
 This is discussion #28 from "Design Patterns in Swift" on Udemy.
 
+https://www.udemy.com/course/design-patterns-swift
+
+Essentially it shows how NOT to implement a testable Singleton, and how to implement a robust test
+* Tests against a "live" database (that being our capitals.txt file)
+* Tests against a mocked database
+
 I could not get it to work with a simple commandline invokation like "$ swift testing.swift"
 despite the fact that this is how the video shows it working.
 

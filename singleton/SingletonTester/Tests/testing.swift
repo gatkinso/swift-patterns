@@ -7,7 +7,7 @@ protocol Database
 }
 
 class SingletonDatabase {
-    var capitals = [String: Int]()
+    var capitals = [String : Int]()  //dictionary
     static var instanceCount = 0
 
     //singleton
@@ -17,7 +17,7 @@ class SingletonDatabase {
         type(of: self).instanceCount += 1
         print("Initializing database")
 
-        let path = "../capitals.txt"  
+        let path = "../capitals.txt"  // OUR "LIVE" DATABSE - WARNING THIS IS FRAGILE
         if let text = try? String(contentsOfFile: path,
                                     encoding: String.Encoding.utf8) {
             let strings = text.components(separatedBy: .newlines)
@@ -86,7 +86,7 @@ class SingletonTests: XCTestCase
     XCTAssertEqual(1, SingletonDatabase.instanceCount, "instance count must = 1")
   }
 
-  func test_singletonTotalPopulationTest()
+  func test_singletonTotalPopulationTest()  // BAD TEST
   {
     let rf = SingletonRecordFinder()
     let names = ["Tokyo", "New York"]
@@ -94,10 +94,10 @@ class SingletonTests: XCTestCase
     XCTAssertEqual(1111111+2222222, tp, "population size must match")
   }
 
-  func test_dependantTotalPopulationTest() {
+  func test_dependantTotalPopulationTest() {  //GOOD TEST USING DEPENDENCY INJECTION
     let db = DummyDatabase()
     let rf = ConfigurableRecordFinder(database: db)
-    XCTAssertEqual(4, rf.totalPopulation(names: ["alpha", "gamma"]))
+    XCTAssertEqual(4, rf.totalPopulation(names: ["alpha", "gamma"]))  //sum of alpha and gamma
   }
 }
 
