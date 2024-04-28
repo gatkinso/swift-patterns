@@ -1,0 +1,18 @@
+This is discussion #28 from "Design Patterns in Swift" on Udemy.
+
+I could not get it to work with a simple commandline invokation like "$ swift testing.swift"
+despite the fact that this is how the video shows it working.
+
+Putting it into a Swift Package got it running.
+
+Note that the executable is s simple Hello World, the real target here is the unit test.
+
+So From this diredtory doing:
+
+$ swift build
+
+then 
+
+$ swift test 
+
+runs the unit tests that demonstrate the pattern, and testing issues mentioned in the discussion.

@@ -1,0 +1,12 @@
+Tokyo
+1111111
+New York
+2222222
+Washington DC
+3333333
+Sao Paulo
+4444444
+Mexico City
+5555555
+Jakarta
+6666666
