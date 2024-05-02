@@ -5,12 +5,7 @@ import XCTest
 
 class DataControllerTests: XCTestCase
 {
-  static var allTests = [
-    ("test_NoMockTest", test_NoMockTest),
-    ("test_MockTest", test_MockTest),
-  ]
-
-  func test_NoMockTest()
+  func test_ProductionCode()
   {
     let provider = NetworkProvider()
     let controller = DataController(provider)
@@ -20,7 +15,7 @@ class DataControllerTests: XCTestCase
     XCTAssertFalse(elapsed < 10, "Test is meant to take too long")
   }
 
-  func test_MockTest() 
+  func test_MockCode() 
   {
     let provider = MockedNetworkProvider()
     let controller = DataController(provider)
@@ -28,5 +23,25 @@ class DataControllerTests: XCTestCase
     let elapsed = controller.performDataRequest()
 
     XCTAssertTrue(elapsed < 10, "Test Took too long")
+  }
+
+  func test_LookupFails() 
+  {
+    let provider = MockedNetworkProvider()
+    let controller = DataController(provider)
+
+    provider.lookupRet = false
+
+    let result = controller.doLookup()
+    XCTAssertFalse(result, "Test should have failed")
+  }
+
+  func test_LookupSuccess() 
+  {
+    let provider = MockedNetworkProvider()
+    let controller = DataController(provider)
+
+    let result = controller.doLookup()
+    XCTAssertTrue(result, "Test Failed")
   }
 }

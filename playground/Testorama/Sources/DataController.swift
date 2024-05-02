@@ -10,4 +10,8 @@ struct DataController {
     func performDataRequest() -> Int {
         return networkProvider.requestData()
     }
+
+    func doLookup() -> Bool {
+        return networkProvider.someExpensiveLookup()
+    }
 }

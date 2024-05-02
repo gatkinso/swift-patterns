@@ -20,15 +20,18 @@ class NetworkProvider: NetworkProviding {
     }
 
     func someExpensiveLookup() -> Bool {
-        return false
+        return true
     }
 }
-
+ 
 class MockedNetworkProvider: NetworkProviding {
     var elapsedTimeMs: Int
 
+    var lookupRet: Bool
+
     init() {
         self.elapsedTimeMs = 1
+        self.lookupRet = true
     }
 
     func requestData() -> Int {
@@ -37,6 +40,6 @@ class MockedNetworkProvider: NetworkProviding {
     }
 
     func someExpensiveLookup() -> Bool {
-        return true
+        return lookupRet
     }
 }
