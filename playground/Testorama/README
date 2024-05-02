@@ -1,0 +1,13 @@
+$ swift swift package init --type executable --name Testorama 
+
+$ mkdir Tests
+$ touch DataControllerTests.swift
+(add code to the file)
+
+$ swift build
+
+then 
+
+$ swift test 
+
+runs the unit tests that demonstrate the pattern, and testing issues mentioned in the discussion.

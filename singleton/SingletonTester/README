@@ -13,7 +13,7 @@ Putting it into a Swift Package got it running.
 
 Note that the executable is s simple Hello World, the real target here is the unit test.
 
-So From this diredtory doing:
+So from this directory doing:
 
 $ swift build
 
