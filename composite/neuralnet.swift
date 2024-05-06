@@ -22,8 +22,9 @@ class NeuronLayer : Sequence {
 }
 
 extension Sequence {
+    //func connect(to other:Sequence)                   //WHY DOESN'T THIS WORK?
+    //    where Sequence.Iterator.Element == Neuron,
     func connect<Seq: Sequence>(to other:Seq)
-    //func connect(to other:Sequence)               //WHY DOESN'T THIS WORK?
         where Seq.Iterator.Element == Neuron,
             Self.Iterator.Element == Neuron {
                 for from in self {
